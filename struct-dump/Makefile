@@ -14,9 +14,25 @@ define KernelPackage/struct-dump
   KCONFIG:=
 endef
 
+STRUCT_INCLUDE:=\
+	linux/module.h \
+	linux/fs.h \
+	linux/sched.h \
+	net/net_namespace.h \
+	linux/netdevice.h
+
+STRUCT_NAME:=\
+	module \
+	file_operations \
+	task_struct \
+	net \
+	net_device_ops
 
 define Build/Compile
-	$(KERNEL_MAKE) M="$(PKG_BUILD_DIR)" modules
+	$(KERNEL_MAKE) M="$(PKG_BUILD_DIR)" \
+		CONFIG_DUMPSTRUCT_KEY_OFFSET=y \
+		STRUCT_INCLUDE="$(STRUCT_INCLUDE)" \
+		STRUCT_NAME="$(STRUCT_NAME)"
 endef
 
 $(eval $(call KernelPackage,struct-dump))
