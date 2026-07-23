@@ -69,7 +69,7 @@ int main(void)
 	STRUCT_MEMBER(task_struct, atomic_flags);
 	STRUCT_MEMBER(task_struct, nsproxy);
 	STRUCT_MEMBER(task_struct, seccomp);
-	STRUCT_MEMBER(task_struct, rseq);
+	//STRUCT_MEMBER(task_struct, rseq);
 	STRUCT_MEMBER(task_struct, rcu);
 	STRUCT_MEMBER(task_struct, bpf_net_context);
 	END_STRUCT(task_struct);
@@ -82,7 +82,7 @@ int main(void)
 	STRUCT_MEMBER(net, xdp);
 #endif
 #if IS_ENABLED(CONFIG_VSOCKETS)
-	STRUCT_MEMBER(net, vsock);
+	//STRUCT_MEMBER(net, vsock);
 #endif
 	END_STRUCT(net);
 
