@@ -5,6 +5,7 @@ include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=struct-dump
 PKG_RELEASE:=1
+PKG_TARGETS:=bin
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -33,6 +34,11 @@ define Build/Compile
 		CONFIG_DUMPSTRUCT_KEY_OFFSET=y \
 		STRUCT_INCLUDE="$(STRUCT_INCLUDE)" \
 		STRUCT_NAME="$(STRUCT_NAME)"
+endef
+
+define Build/InstallDev
+	$(INSTALL_DIR) $(KERNEL_BUILD_DIR)/debug/struct-dump
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/*.txt $(KERNEL_BUILD_DIR)/debug/struct-dump/
 endef
 
 $(eval $(call KernelPackage,struct-dump))
