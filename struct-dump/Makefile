@@ -27,6 +27,7 @@ STRUCT_NAME:=\
 	file_operations \
 	task_struct \
 	net \
+	net_device \
 	net_device_ops
 
 define Build/Compile

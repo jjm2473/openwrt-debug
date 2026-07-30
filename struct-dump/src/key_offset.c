@@ -72,6 +72,8 @@ int main(void)
 	//STRUCT_MEMBER(task_struct, rseq);
 	STRUCT_MEMBER(task_struct, rcu);
 	STRUCT_MEMBER(task_struct, bpf_net_context);
+	STRUCT_MEMBER(task_struct, kstack_offset);
+	STRUCT_MEMBER(task_struct, thread);
 	END_STRUCT(task_struct);
 
 	BEGIN_STRUCT(net);
@@ -84,6 +86,7 @@ int main(void)
 #if IS_ENABLED(CONFIG_VSOCKETS)
 	//STRUCT_MEMBER(net, vsock);
 #endif
+	STRUCT_MEMBER(net, diag_nlsk);
 	END_STRUCT(net);
 
 	BEGIN_STRUCT(net_device_ops);
