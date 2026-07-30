@@ -96,5 +96,20 @@ int main(void)
 	STRUCT_MEMBER(net_device_ops, ndo_bpf);
 	STRUCT_MEMBER(net_device_ops, ndo_hwtstamp_set);
 	END_STRUCT(net_device_ops);
+
+	BEGIN_STRUCT(net_device);
+	STRUCT_MEMBER(net_device, name);
+	STRUCT_MEMBER(net_device, operstate);
+	STRUCT_MEMBER(net_device, dev_addr);
+	STRUCT_MEMBER(net_device, broadcast);
+	STRUCT_MEMBER(net_device, watchdog_timer);
+	STRUCT_MEMBER(net_device, priv_destructor);
+	STRUCT_MEMBER(net_device, dev);
+	STRUCT_MEMBER(net_device, threaded);
+	STRUCT_MEMBER(net_device, net_notifier_list);
+	STRUCT_MEMBER(net_device, devlink_port);
+	STRUCT_MEMBER(net_device, irq_moder);
+	STRUCT_MEMBER(net_device, priv);
+	END_STRUCT(net_device);
 	return 0;
 }
