@@ -143,5 +143,11 @@ int main(void)
 	STRUCT_MEMBER(inet_connection_sock, icsk_ca_priv);
 	END_STRUCT(inet_connection_sock);
 
+	BEGIN_STRUCT(inet_sock);
+	END_STRUCT(inet_sock);
+
+	BEGIN_STRUCT(flowi);
+	END_STRUCT(flowi);
+
 	return 0;
 }
