@@ -134,6 +134,7 @@ int main(void)
 	STRUCT_MEMBER(sock, sk_lock);
 	STRUCT_MEMBER(sock, sk_gso_type);
 	STRUCT_MEMBER(sock, sk_cgrp_data);
+	STRUCT_MEMBER(sock, sk_state_change);
 	STRUCT_MEMBER(sock, sk_rcu);
 	END_STRUCT(sock);
 
@@ -143,11 +144,8 @@ int main(void)
 	STRUCT_MEMBER(inet_connection_sock, icsk_ca_priv);
 	END_STRUCT(inet_connection_sock);
 
-	BEGIN_STRUCT(inet_sock);
-	END_STRUCT(inet_sock);
-
-	BEGIN_STRUCT(flowi);
-	END_STRUCT(flowi);
+	BEGIN_STRUCT(sock_cgroup_data);
+	END_STRUCT(sock_cgroup_data);
 
 	return 0;
 }
