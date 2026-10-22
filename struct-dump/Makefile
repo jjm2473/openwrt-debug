@@ -20,7 +20,8 @@ STRUCT_INCLUDE:=\
 	linux/fs.h \
 	linux/sched.h \
 	net/net_namespace.h \
-	linux/netdevice.h
+	linux/netdevice.h \
+	linux/tcp.h
 
 STRUCT_NAME:=\
 	module \
@@ -28,7 +29,10 @@ STRUCT_NAME:=\
 	task_struct \
 	net \
 	net_device \
-	net_device_ops
+	net_device_ops \
+	sock \
+	tcp_sock \
+	inet_sock
 
 define Build/Compile
 	$(KERNEL_MAKE) M="$(PKG_BUILD_DIR)" \

@@ -6,6 +6,7 @@
 #include <net/net_namespace.h>
 #include <linux/netdevice.h>
 #include <linux/stddef.h>
+#include <linux/tcp.h>
 
 #define KEY_OFFSET_PREFIX "-> "
 
@@ -110,5 +111,37 @@ int main(void)
 	STRUCT_MEMBER(net_device, irq_moder);
 	STRUCT_MEMBER(net_device, priv);
 	END_STRUCT(net_device);
+
+	BEGIN_STRUCT(tcp_sock);
+	STRUCT_MEMBER(tcp_sock, inet_conn);
+	STRUCT_MEMBER(tcp_sock, rtt_min);
+	STRUCT_MEMBER(tcp_sock, out_of_order_queue);
+	STRUCT_MEMBER(tcp_sock, snd_ssthresh);
+	STRUCT_MEMBER(tcp_sock, highest_sack);
+	STRUCT_MEMBER(tcp_sock, rx_opt);
+	STRUCT_MEMBER(tcp_sock, bytes_received);
+	STRUCT_MEMBER(tcp_sock, ooo_last_skb);
+	STRUCT_MEMBER(tcp_sock, lost_cnt_hint);
+	STRUCT_MEMBER(tcp_sock, timeout_rehash);
+	STRUCT_MEMBER(tcp_sock, fastopen_req);
+	END_STRUCT(tcp_sock);
+
+	BEGIN_STRUCT(sock);
+	STRUCT_MEMBER(sock, __sk_common);
+	STRUCT_MEMBER(sock, sk_drops);
+	STRUCT_MEMBER(sock, sk_backlog);
+	STRUCT_MEMBER(sock, sk_userlocks);
+	STRUCT_MEMBER(sock, sk_lock);
+	STRUCT_MEMBER(sock, sk_gso_type);
+	STRUCT_MEMBER(sock, sk_cgrp_data);
+	STRUCT_MEMBER(sock, sk_rcu);
+	END_STRUCT(sock);
+
+	BEGIN_STRUCT(inet_connection_sock);
+	STRUCT_MEMBER(inet_connection_sock, icsk_accept_queue);
+	STRUCT_MEMBER(inet_connection_sock, icsk_bind_hash);
+	STRUCT_MEMBER(inet_connection_sock, icsk_ca_priv);
+	END_STRUCT(inet_connection_sock);
+
 	return 0;
 }
